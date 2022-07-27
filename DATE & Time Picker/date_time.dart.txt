@@ -1,0 +1,59 @@
+import 'package:flutter/material.dart';
+
+class DateAndTime extends StatefulWidget {
+  DateAndTime({Key? key}) : super(key: key);
+
+  @override
+  State<DateAndTime> createState() => _DateAndTimeState();
+}
+
+class _DateAndTimeState extends State<DateAndTime> {
+  DateTime date = DateTime(2022, 7, 27);
+  TimeOfDay time = TimeOfDay(hour: 10, minute: 20);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              '${date.year}/${date.month}/${date.day}',
+              style: Theme.of(context).textTheme.headline4,
+            ),
+            Text(
+              '${time.hour}:${time.minute}',
+              style: Theme.of(context).textTheme.headline4,
+            ),
+            ElevatedButton(
+                onPressed: () async {
+                  DateTime? date2 = await showDatePicker(
+                    context: context,
+                    initialDate: date,
+                    firstDate: DateTime(1900),
+                    lastDate: date,
+                  );
+                  date2 != null ? setState(() => date = date2) : date;
+                },
+                child: Text('Get Date')),
+            SizedBox(
+              height: 10,
+            ),
+            ElevatedButton(
+                onPressed: () async {
+                  TimeOfDay? time2 = await showTimePicker(
+                    context: context,
+                    initialTime: time,
+                  );
+                  time = time2!;
+                  var date2;
+                  time2 != null ? setState(() => date = date2!) : date;
+                },
+                child: Text('Get time'))
+          ],
+        ),
+      ),
+    );
+  }
+}
