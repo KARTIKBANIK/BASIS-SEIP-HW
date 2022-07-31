@@ -1,0 +1,136 @@
+import 'package:flutter/material.dart';
+ 
+class VisitnigCard extends StatelessWidget {
+  const VisitnigCard({Key? key}) : super(key: key);
+ 
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        padding: EdgeInsets.only(left: 20, top: 50, right: 20),
+        //margin: EdgeInsets.symmetric(vertical: 20),
+        child: Column(
+          //mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              padding: EdgeInsets.all(8),
+              height: 200,
+              width: 200,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                border: Border.all(
+                  width: 4,
+                  color: Colors.black,
+                ),
+              ),
+              child: CircleAvatar(
+                backgroundImage: NetworkImage(
+                    "https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&w=300"),
+              ),
+            ),
+            Text(
+              "Profile Name",
+              style: TextStyle(fontSize: 30),
+            ),
+            Padding(
+              padding: EdgeInsets.all(10),
+            ),
+            Text(
+              "App Developer",
+              style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+            ),
+            Padding(
+              padding: EdgeInsets.all(10),
+            ),
+            ListTile(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15),
+              ),
+              tileColor: Colors.blueGrey,
+              leading: Icon(
+                Icons.email,
+                color: Colors.white,
+              ),
+              title: Text(
+                "kartikbanikshishir@gmail.com",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+            SizedBox(height: 10),
+            ListTile(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15),
+              ),
+              tileColor: Colors.blueGrey,
+              leading: Icon(
+                Icons.call,
+                color: Colors.white,
+              ),
+              title: Text(
+                "0156478961",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+            SizedBox(height: 10),
+            ListTile(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15),
+              ),
+              tileColor: Colors.blueGrey,
+              leading: Icon(
+                Icons.people,
+                color: Colors.white,
+              ),
+              title: Text(
+                "Address: Mohammadpur,Katasur,Dhaka,1207",
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 50),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  CircleAvatar(
+                    backgroundImage: NetworkImage(
+                        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRffWo3TdZd-FULexnuI7vbB0WoSGhco7Xeeg&usqp=CAU"),
+                  ),
+                  SizedBox(
+                    width: 15,
+                  ),
+                  CircleAvatar(
+                    backgroundImage: AssetImage("images/linkdin.png"),
+                  ),
+                  SizedBox(
+                    width: 15,
+                  ),
+                  CircleAvatar(
+                    backgroundImage: NetworkImage(
+                        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTF-ZqBA1v-4iQ8XVW9-K9DXGyaZGBU8HiB8g&usqp=CAU"),
+                  ),
+                  SizedBox(
+                    width: 15,
+                  ),
+                  CircleAvatar(
+                    backgroundImage: AssetImage("images/twitter.png"),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
