@@ -1,0 +1,88 @@
+import 'package:flutter/material.dart';
+
+class HomeAppBar extends StatelessWidget {
+  const HomeAppBar({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Welcome Home",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                ),
+              ),
+              Text(
+                "Annye Bryant",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 40,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
+          Container(
+              child: Stack(
+            children: [
+              Row(
+                children: [
+                  Container(
+                    transform: Matrix4.rotationZ(100),
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                        top: 25,
+                        right: 20,
+                      ),
+                      child: Icon(
+                        Icons.notifications_none,
+                        size: 32,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  Container(
+                    child: CircleAvatar(
+                      backgroundColor: Colors.black,
+                      radius: 30,
+                      child: CircleAvatar(
+                        backgroundColor: Colors.white,
+                        radius: 27,
+                        child: CircleAvatar(
+                          backgroundImage: AssetImage(
+                            "assets/images/avatar.png",
+                          ),
+                          radius: 25,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              Positioned(
+                  right: 70,
+                  top: 9,
+                  child: Container(
+                    padding: EdgeInsets.all(5),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.red,
+                    ),
+                  ))
+            ],
+          )),
+        ],
+      ),
+    );
+  }
+}

@@ -1,0 +1,64 @@
+
+import 'package:flutter/material.dart';
+
+class TagList extends StatefulWidget {
+  @override
+  State<TagList> createState() => _TagListState();
+}
+
+class _TagListState extends State<TagList> {
+  final _tagList = [
+    'All',
+    '⚡     Popular',
+    '🌟     Featured',
+    'All',
+    '⚡     Popular',
+    '🌟     Featured',
+    'All',
+    '⚡     Popular',
+    '🌟     Featured',
+  ];
+
+  var selected = 0;
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Container(
+        width: double.infinity,
+        height: 40,
+        child: ListView.separated(
+          scrollDirection: Axis.horizontal,
+          itemCount: _tagList.length,
+          itemBuilder: (context, index) {
+            return GestureDetector(
+              onTap: () {
+                setState(() {
+                  selected = index;
+                });
+              },
+              child: Container(
+                alignment: Alignment.center,
+                padding: EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  color: selected == index ? Colors.deepOrange : Colors.white,
+                  borderRadius: BorderRadius.circular(5),
+                  border: Border.all(
+                      color: selected == index
+                          ? Colors.yellow.withOpacity(0.1)
+                          : Colors.blue),
+                ),
+                child: Text(
+                  _tagList[index],
+                  style: TextStyle(color: Colors.black),
+                ),
+              ),
+            );
+          },
+          separatorBuilder: (_, index) => SizedBox(
+            width: 15,
+          ),
+        ),
+      ),
+    );
+  }
+}
